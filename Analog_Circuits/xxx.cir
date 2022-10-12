@@ -1,0 +1,29 @@
+ Design a voltage to current converter within a specified range
+.include ua741.txt
+*Element instantiation
+
+* OP-AMP definition with input voltage
+vdd 4 0 dc 5v
+vcc 5 0 dc -5v
+
+* Inorder to maintain the range of the current from 100nA to 10uA we restrict the input from 0.1V to 10V
+vin 6 0 0.1v
+
+r1 2 3 1Meg
+r2 2 0 1Meg
+r3 3 1 1Meg
+r4 6 1 1Meg
+rload 1 0 20k
+vdummy 1 7 0v
+
+
+x1 7 2 4 5 3 UA741
+
+.tran 0.02ms 0.2ms
+.control
+run
+print I(vdummy) v(1)/10k
+plot v(1)/20k 1n
+.endc
+.end
+

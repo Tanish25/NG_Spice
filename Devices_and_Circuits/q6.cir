@@ -1,0 +1,21 @@
+Question 6
+
+Vdd 1 0 10
+vd 1 2 0
+rd 2 3 4k
+vd1 1 5 0
+r1 5 4 7.5k
+r2 4 0 3.2k
+M1 3 4 0 0 MN4007
+
+.model MN4007 NMOS(Kp=500u Vto=1.5 Lambda=0.01 Gamma=0.6 Tox=1200n Phi=.6 Rs=0 Rd=0 Cbd=2.0p Cbs=2.0p Pb=.8 Cgso=0.1p Cgdo=0.1p Is=16.64p)
+
+.control
+op
+run
+
+
+print i(vd) v(3) v(4) i(vd1)
+
+.endc
+.end

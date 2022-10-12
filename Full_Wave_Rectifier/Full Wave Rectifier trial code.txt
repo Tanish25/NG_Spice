@@ -1,0 +1,19 @@
+*Netlist
+.model Da1N4004 D(IS=18.8n RS=0 BV=400 IBV=5.00u CJO=30 M=0.333 N=2)
+Vin 1 0 SIN(0 16.971 50 0 0)
+Rs 2 1 0.01
+Vdummy 2 3 0V
+D1 3 4 Da1N4004
+D2 5 3 Da1N4004
+D3 5 0 Da1N4004
+D4 0 4 Da1N4004
+C1 4 5 5n
+RL 4 5 47
+.tran 0.01ms 0.1s
+.control
+run
+plot v(4)-v(5) 
+plot v(1)
+
+.endc
+.end

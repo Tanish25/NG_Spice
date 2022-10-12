@@ -1,0 +1,17 @@
+Q3
+.include ua741.txt
+Vin in dc 0 ac 1 
+R1 in 2 3k
+X1 2 3 5 6 4 UA741
+R2 3 0 500
+R3 3 4 10k
+Vp 5 0 dc +15V
+Vm 6 0 dc -15V
+RL 4 0 1k
+.tran 0.001ms 0.1ms
+.control 
+.ac dec 10 1 1k
+run
+plot v(1) v(4)
+.endc
+.end
